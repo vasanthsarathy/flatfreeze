@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Flatfreeze</title>
+  <meta name="description" content="Flatfreeze flattens and freezes in one go!">
+  <link rel='stylesheet' href="../static/css/main.css">
+
+</head>
+<body>
+  
+<div id="menu">
+  <ul>
+    <li id="link-home"><a href="../index.html">Home</a></li>
+    <li id="link-blog"><a href="../blog.html">Blog</a></li>
+    <li id="link-contact"><a href="../contact.html">Contact</a></li>
+  </ul>
+</div>
+  <h1>Flask How to</h1>
+  <h1>Install Virtual Env (one time)</h1>
+<pre><code>$ sudo easy_install virtualenv
+</code></pre>
+<h1>Installing Flask (Do it project by project rather than system-wide)</h1>
+<p>Let's say we are doing a project called "HelloWorld"</p>
+<pre><code>$ mkdir HelloWorld
+$ cd HelloWorld
+$ virtualenv venv
+$ . venv/bin/activate
+</code></pre>
+<p>The first command makes a new project folder. The next takes you into the project folder. The <code>virtualenv venv</code> command creates a virtual environment sub-folder called "venv" in this project folder. The <code>. venv/bin/activate</code> starts or activates the virtual environment. </p>
+<p>Next we have to activate Flask in the virtual env:</p>
+<pre><code>$ sudo pip install Flask
+</code></pre>
+<p>This command installs flask into the <code>venv/bin/pip/</code> folder.  Don't really need the <code>sudo</code></p>
+<h1>Creating and running a Minimal Flask Application</h1>
+<p>Open a new document and type in the following code and save file as "manage.py"</p>
+<p>```python</p>
+<h1>Import an instance of the Flask class. This is the web server gateway interface (WSGI) application</h1>
+<p>from flask import Flask</p>
+<h1>Create instance of the class</h1>
+<p>app = Flask(<strong>name</strong>)</p>
+<p>@app.route('/')
+def hello_world():
+    return 'Hello World!'</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    app.run()
+```</p>
+<p>Then run the code inside  your environment</p>
+<pre><code>$ python manage.py
+</code></pre>
+<p>You will see the following message:</p>
+<pre><code>* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+</code></pre>
+<p>Now, you can open up a browser and access the webpage from http://127.0.0.1:5000</p>
+
+</body>
+</html>

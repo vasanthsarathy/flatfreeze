@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Flatfreeze</title>
+  <meta name="description" content="Flatfreeze flattens and freezes in one go!">
+  <link rel='stylesheet' href="../static/css/main.css">
+
+</head>
+<body>
+  
+<div id="menu">
+  <ul>
+    <li id="link-home"><a href="../index.html">Home</a></li>
+    <li id="link-blog"><a href="../blog.html">Blog</a></li>
+    <li id="link-contact"><a href="../contact.html">Contact</a></li>
+  </ul>
+</div>
+  <h1>Git Guide</h1>
+  <p><strong>THS ASSUMES THAT GIT IS INSTALLED AND CONFIGURED</strong></p>
+<p><code>$ git config --global user.name 'Your Name'
+$ git config --global user.email you@somedomain.com</code></p>
+<h1>GIT - Local Repository</h1>
+<p>Git is a version tracking system to track the development of a project. Think of your project as a folder having a tree-like structure with sub-folders and files. You want to track changes you make across the tree. Git creates 3 trees for this purpose: </p>
+<ol>
+<li>Working folder (which has your files); </li>
+<li>Index tree (a staging area for proposed changes); </li>
+<li>Head tree (to use when committing these changes). </li>
+</ol>
+<p><strong>Git workflow</strong>: Essentially, you are taking a snapshot of your folder-tree at a given time and saving it locally. You can save this snapshot remotely as a backup (see below for Github)</p>
+<p><strong>Getting a Git repository</strong>
+To do anything in Git you have to have a Git repository. This is where Git stores the data for the snapshots you are saving. There are 2 ways to get a Git repository:  </p>
+<ol>
+<li>initialize a new one from an existing directory (e.g., new projects); OR</li>
+<li>clone an existing public repository (e.g., wanted to copy or work on someone else's project)</li>
+</ol>
+<p><strong>Initializing a new repo</strong>
+Let's say you have a new project that you want to track in a folder called "HelloWorld".
+First, cd into that folder (<strong>Need to do only ONCE for each project</strong>), and then initialize git
+    <code>$ cd HelloWorld</code>
+    <code>$ git init .</code></p>
+<p>Other useful commands</p>
+<pre><code> $ git init
+
+ $ git init &lt;directory&gt;
+</code></pre>
+<p><strong>Cloning a Git repo</strong>
+Let's say you want to copy a project or collaborate with someone on a project or use their code, you can clone it (<code>$ git clone [url]</code>). For example, if you want to clone the MetaMoo web app from Github</p>
+<pre><code>$ git clone git@github.com:MetaMoo/MetaMooWebApp.git
+</code></pre>
+<p>If you are cloning a local repo (e.g., maybe creating a working copy)</p>
+<pre><code>$ git clone /path/to/repository
+</code></pre>
+<p><strong>Adding and committing to the repo</strong></p>
+<ol>
+<li>
+<p>Propose changes to the index tree - take all untracked files and start tracking them</p>
+<p><code>$ git add --all</code>
+2. Commit changes to the head tree - Take a snapshot of these files and save it as a checkpoint. Choose a good message to describe the commit and the work you have done for it to help with recall later.</p>
+<p><code>$ git commit -am "Commit message"</code></p>
+</li>
+</ol>
+<p><strong>Seeing what has been modified and committed</strong>
+To see the state of the project, we can use:</p>
+<pre><code>$ git status
+</code></pre>
+<h1>Github - Remote Repository</h1>
+<p>Github is a service providing a remote repository for Git. Essentially, you can version control and share your projects with everyone. Also, it is useful if you are changing computers or simply want a backup.</p>
+<p>Now, you can (1) either create a new remote repository and add your local repo to it; or (2) add to an existing repo (e.g., the one you cloned from)</p>
+<p><strong>To create a new remote repo:</strong></p>
+<ol>
+<li>Sign in to Github and create a new repo (choose SSH option so you don't have to keep entering your password each time you send something)</li>
+<li>Hook up your local Git repo to the remote Github repo
+    <code>$ git remote add origin git@github.com:appname/appname.git</code></li>
+<li>Push for the first time to Github. <strong>*Note:</strong> The -u to git push means "as well as pushing, associate my master branch with the one I'm pushing to".
+    <code>$ git push -u origin master</code></li>
+<li>Subsequent pushes you don't need the "-u" option</li>
+</ol>
+<p><strong>To add files to an existing repo that you cloned from, simply push:</strong>
+    <code>$ git push origin master</code></p>
+<p>Note: "master" points to the main branch. You can change "master" to whatever branch you want.</p>
+<h1>Useful Git Resources</h1>
+<p>http://rogerdudler.github.io/git-guide/</p>
+<p>http://gitref.org/index.html</p>
+
+</body>
+</html>
